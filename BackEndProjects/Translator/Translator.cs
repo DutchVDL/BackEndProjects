@@ -27,7 +27,7 @@ namespace BackEndProjects.Translator
                     try
                     {
                         File.Create(filePath).Close();
-                     
+
                     }
                     catch (Exception ex)
                     {
@@ -52,7 +52,7 @@ namespace BackEndProjects.Translator
                 catch (FormatException)
                 {
                     Console.WriteLine("Invalid Input");
-                    continue; 
+                    continue;
                 }
                 if (LangOption == 5)
                 {
@@ -82,7 +82,7 @@ namespace BackEndProjects.Translator
                 }
 
                 Console.WriteLine("Enter a word you would like to translate: ");
-                string targetWord = Console.ReadLine()?.ToLower(); 
+                string targetWord = Console.ReadLine()?.ToLower();
 
                 if (string.IsNullOrEmpty(targetWord))
                 {
@@ -108,11 +108,14 @@ namespace BackEndProjects.Translator
                             {
                                 Console.WriteLine($"Translation: {words[index + 1]}");
                             }
-                            else
-                            {
-                                Console.WriteLine("That word is the last one in the dictionary.");
-                            }
+                          
                             wordFound = true;
+                            Console.WriteLine("Do you want to edit this translation? (yes/no)");
+                            string editChoice = Console.ReadLine()?.ToLower();
+                            if (editChoice == "yes")
+                            {
+                                EditWord(filePath, targetWord);
+                            }else break;
                             break;
                         }
                     }
@@ -144,7 +147,56 @@ namespace BackEndProjects.Translator
                 }
             }
         }
+
+
+
+
+        private void EditWord(string filePath, string targetWord)
+        {
+            try
+            {
+                // Read all lines from the translation file
+                List<string> lines = new List<string>(File.ReadAllLines(filePath));
+
+                // Find the line containing the target word
+                for (int i = 0; i < lines.Count; i++)
+                {
+                    if (lines[i].Contains(targetWord))
+                    {
+                        // Prompt user for new translation
+                        Console.WriteLine("Enter the new translation:");
+                        string newTranslation = Console.ReadLine()?.Trim();
+
+                        // Update the line with new translation
+                        string[] words = lines[i].Split(new char[] { '.', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                        int index = Array.IndexOf(words, targetWord);
+                        if (index < words.Length - 1)
+                        {
+                            words[index + 1] = newTranslation;
+                            lines[i] = string.Join(".", words);
+                        }
+
+                        // Write the updated lines back to the file
+                        File.WriteAllLines(filePath, lines);
+
+                        Console.WriteLine("Translation updated successfully.");
+                        return;
+                    }
+                }
+
+                Console.WriteLine("Word not found in the translation file.");
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("Translation file not found.");
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+        }
     }
+
 
 
 }
