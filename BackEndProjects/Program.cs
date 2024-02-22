@@ -46,3 +46,5 @@ userInterface.Run();*/
 
 studentMenu.Run();*/
 
+Translator translator = new Translator();
+translator.Run();
