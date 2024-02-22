@@ -8,7 +8,7 @@ namespace BackEndProjects.StudentManagement
 {
     internal class StudentManager
     {
-        public  List<Student> students {  get; set; }
+        public static  List<Student> Students {  get; set; }
 
         public StudentManager()
         {
@@ -16,22 +16,22 @@ namespace BackEndProjects.StudentManagement
         }
         public StudentManager(List<Student> students)
         {
-            this.students = students;
+            Students = students;
         }
 
         public void AddStudent (Student student)
         {
-            students.Add (student);
+            Students.Add (student);
             Console.WriteLine("Student has been added");
         }
 
         public void showStudents ()
         {
-            if (students == null ) {
+            if (Students == null ) {
 
                 Console.WriteLine("The list is empty");
             }
-            foreach (var student in students)
+            foreach (var student in Students)
             {
                 Console.WriteLine(student);
             }
@@ -39,7 +39,7 @@ namespace BackEndProjects.StudentManagement
 
         public Student findByRollNumber(int number )
         {
-            foreach(var student in students)
+            foreach(var student in Students)
             {
                 if(student.RollNumber == number) {  return  student;  }
                 

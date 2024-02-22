@@ -6,29 +6,47 @@ using System.Threading.Tasks;
 
 namespace BackEndProjects.BookManagement
 {
-    internal class Book :IComparable
+    internal class Book : IComparable
     {
-        public string Name { get; set; }
-        public string Author { get; set; }
-        public DateTime YearOfPublication { get; set; }
+        // Properties
+        public string Name { get; set; }  // Name of the book
+        public string Author { get; set; }  // Author of the book
+        public DateTime YearOfPublication { get; set; }  // Year of publication of the book
 
-        public Book() { }
+        // Constructors
+        public Book() { }  // Default constructor
 
-        public Book (string name, string author, DateTime yearOfPublication)
+        // Constructor with parameters
+        public Book(string name, string author, DateTime yearOfPublication)
         {
             Name = name;
             Author = author;
             YearOfPublication = yearOfPublication;
         }
 
+        // ToString method override to provide a string representation of the book
         public override string ToString()
         {
-            return $"Name : {Name}, Author: {Author}, Date of Publication: {YearOfPublication}";
+            // Return a formatted string including the name, author, and year of publication
+            return $"Name: {Name}, Author: {Author}, Year of Publication: {YearOfPublication.Year}";
         }
 
+        // CompareTo method implementation for IComparable interface
         public int CompareTo(object? obj)
         {
-            return Name.CompareTo(obj);
+            // Check if the object is null
+            if (obj == null) return 1;
+
+            // If the object is a Book, compare their names
+            if (obj is Book otherBook)
+            {
+                return this.Name.CompareTo(otherBook.Name);
+            }
+            else
+            {
+                // Throw an exception if the object is not a Book
+                throw new ArgumentException("Object is not a Book");
+            }
         }
     }
 }

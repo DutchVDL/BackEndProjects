@@ -9,7 +9,10 @@ namespace BackEndProjects.BookManagement
 {
     internal class UserInterface
     {
+        
+    
         private BookManager BookManager = new BookManager();
+
         public void Run()
         {
             Console.WriteLine("Welcome to Book Management System");
@@ -56,18 +59,20 @@ namespace BackEndProjects.BookManagement
                     }
 
                 }
-
+                
                 else if (number == 2)
                 {
-                    BookManager.getAllBooks();
+                    BookManager.GetAllBooks();
                 }
 
+
+              
                 else if (number ==3 )
                 {
                     Console.WriteLine("enter the book's name");
                     string name = Console.ReadLine();
                     if (name == null) throw new Exception("Name is Empty");
-                    Console.WriteLine( BookManager.findBook(name));
+                    Console.WriteLine( BookManager.FindBook(name));
 
                 }
                 else
