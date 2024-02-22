@@ -5,6 +5,7 @@ using BackEndProjects.Calculator;
 using BackEndProjects.GuessTheNumber;
 using BackEndProjects.Hangman;
 using BackEndProjects.StudentManagement;
+using BackEndProjects.Translator;
 
 Console.WriteLine("Hello, World!");
 
@@ -32,15 +33,16 @@ list.Add("pineapple");
 
 
 Hangman game = new Hangman(list, 10);
-game.Run();*/
+game.Run();
+*/
 
 
 
-
-
+/*
 UserInterface userInterface = new UserInterface();
-userInterface.Run();
+userInterface.Run();*/
 
 /*StudentMenu studentMenu = new StudentMenu();
 
 studentMenu.Run();*/
+
