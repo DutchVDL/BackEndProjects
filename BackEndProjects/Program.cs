@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using BackEndProjects;
+using BackEndProjects.ATM;
 using BackEndProjects.BookManagement;
 using BackEndProjects.Calculator;
 using BackEndProjects.GuessTheNumber;
@@ -46,5 +46,8 @@ userInterface.Run();*/
 
 studentMenu.Run();*/
 
-Translator translator = new Translator();
-translator.Run();
+/*Translator translator = new Translator();
+translator.Run();*/
+
+ATM aTM = new ATM();
+aTM.Run();

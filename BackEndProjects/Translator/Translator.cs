@@ -87,7 +87,7 @@ namespace BackEndProjects.Translator
                 if (string.IsNullOrEmpty(targetWord))
                 {
                     Console.WriteLine("Invalid input. Please enter a word to translate.");
-                    continue; // Restart the loop 
+                    continue;  
                 }
 
                 try
