@@ -8,13 +8,13 @@ namespace BackEndProjects.StudentManagement
 {
     internal class StudentMenu
     {
-        // Field to hold an instance of StudentManager
+
         private StudentManager Manager = new StudentManager();
 
         // Method to start the student menu interface
         public void Run()
         {
-            // Welcome message
+
             Console.WriteLine("Welcome to Book Management System");
 
             // Main loop for user interaction
@@ -35,7 +35,7 @@ namespace BackEndProjects.StudentManagement
                     Console.WriteLine("Invalid Number! Please follow the given Instructions");
                 };
 
-                // Perform action based on user input
+
                 if (number == 1)
                 {
                     // Display all students
@@ -107,7 +107,7 @@ namespace BackEndProjects.StudentManagement
 
         public bool isCharValid(char c)
         {
-            return c == 'A' || c == 'B' || c == 'C' || c == 'D' || c == 'E' || c == 'F' ;
+            return c == 'A' || c == 'B' || c == 'C' || c == 'D' || c == 'E' || c == 'F';
         }
     }
 }

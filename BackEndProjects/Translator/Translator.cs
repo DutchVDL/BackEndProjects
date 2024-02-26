@@ -78,7 +78,7 @@ namespace BackEndProjects.Translator
                         break;
                     default:
                         Console.WriteLine("Invalid option selected.");
-                        continue; // Restart the loop 
+                        continue;
                 }
 
                 Console.WriteLine("Enter a word you would like to translate: ");
@@ -87,7 +87,7 @@ namespace BackEndProjects.Translator
                 if (string.IsNullOrEmpty(targetWord))
                 {
                     Console.WriteLine("Invalid input. Please enter a word to translate.");
-                    continue;  
+                    continue;
                 }
 
                 try
@@ -108,14 +108,15 @@ namespace BackEndProjects.Translator
                             {
                                 Console.WriteLine($"Translation: {words[index + 1]}");
                             }
-                          
+
                             wordFound = true;
                             Console.WriteLine("Do you want to edit this translation? (yes/no)");
                             string editChoice = Console.ReadLine()?.ToLower();
                             if (editChoice == "yes")
                             {
                                 EditWord(filePath, targetWord);
-                            }else break;
+                            }
+                            else break;
                             break;
                         }
                     }

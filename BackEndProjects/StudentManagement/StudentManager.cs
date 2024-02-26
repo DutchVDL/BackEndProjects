@@ -8,7 +8,7 @@ namespace BackEndProjects.StudentManagement
 {
     internal class StudentManager
     {
-        // List to hold the students, initialized with sample student data
+        // initialize the data
         private List<Student> Students = new List<Student>
     {
         new Student { Name = "Alice", RollNumber = 101, Grade = 'A' },
@@ -23,7 +23,7 @@ namespace BackEndProjects.StudentManagement
         new Student { Name = "Jack", RollNumber = 110, Grade = 'C' }
     };
 
-        // Default constructor
+
         public StudentManager()
         {
 

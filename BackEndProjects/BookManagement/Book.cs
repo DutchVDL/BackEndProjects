@@ -9,12 +9,12 @@ namespace BackEndProjects.BookManagement
     internal class Book : IComparable
     {
         // Properties
-        public string Name { get; set; }  // Name of the book
-        public string Author { get; set; }  // Author of the book
-        public DateTime YearOfPublication { get; set; }  // Year of publication of the book
+        public string Name { get; set; }
+        public string Author { get; set; }
+        public DateTime YearOfPublication { get; set; }
 
         // Constructors
-        public Book() { }  // Default constructor
+        public Book() { }
 
         // Constructor with parameters
         public Book(string name, string author, DateTime yearOfPublication)
@@ -24,10 +24,10 @@ namespace BackEndProjects.BookManagement
             YearOfPublication = yearOfPublication;
         }
 
-        // ToString method override to provide a string representation of the book
+
         public override string ToString()
         {
-            // Return a formatted string including the name, author, and year of publication
+
             return $"Name: {Name}, Author: {Author}, Year of Publication: {YearOfPublication.Year}";
         }
 
