@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace BackEndProjects.ATM
@@ -51,7 +52,13 @@ namespace BackEndProjects.ATM
 
                 if (selectedOption == 3)
                 {
-                    double money = 4555555.5555;
+                    Console.WriteLine("Transfer Money: ")
+                    double money;
+                    while (!double.TryParse(Console.ReadLine(), out money))
+                    {
+                        Console.WriteLine("Invalit Input, Please enter the correct Format");
+                    }
+
                     double balance = getBalance(filePath);
                     File.AppendAllText(filePath, $"{money} - was transferred on {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}\n");
 
